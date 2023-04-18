@@ -3,7 +3,7 @@ version: '3.9'
 services:
   simple-ec-web:
     build: .
-    command: python manage.py runserver 0.0.0.0:8080
+    command: bash -c "python manage.py makemigrations && python manage.py migrate && python manage.py runserver 0.0.0.0:8080"
     environment:
       - DB_HOST=${DB_HOST}
       - DB_PORT=${DB_PORT}
